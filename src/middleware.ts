@@ -17,6 +17,8 @@ export default withAuth(
         requestHeaders.set('x-origin', origin);
         requestHeaders.set('x-pathname', pathname);
 
+        console.info("Middleware Token",token);
+
         if (req.nextUrl.pathname === '/') {
             if (token)
                 return NextResponse.redirect(new URL('/protocols', req.url))
